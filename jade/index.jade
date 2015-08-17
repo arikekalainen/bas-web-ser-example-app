@@ -1,0 +1,29 @@
+
+// -
+    * Basic Web Service
+    * Document template for index.html
+    * Author : Ari Kekalainen <ari.kekalainen@gmail.com>
+-
+
+doctype html
+html()
+    head
+        meta(charset="utf-8")
+        meta(content="IE=edge,chrome=1", http-equiv="X-UA-Compatible")
+        meta(name="viewport", content="initial-scale=1,user-scalable=yes,width=device-width")
+        
+        title Polymer Tryout application
+        
+        link(rel='stylesheet', type="text/css", href='style/normalize.css')
+        link(rel='stylesheet', type="text/css", href='style/style.css')
+        
+        script(src="bower_components/webcomponentsjs/webcomponents-lite.min.js")
+        link(rel='import', href='bower_components/polymer/polymer.html')
+        link(rel="import", href="/bower_components/base-element/base-element.html")
+        
+    body
+        h1 Basic Web Service seems to workd
+        h2 polymer #1.0 tryouts below...
+        div
+            base-element
+            

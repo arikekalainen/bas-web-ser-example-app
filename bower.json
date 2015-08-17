@@ -1,0 +1,23 @@
+{
+  "name": "bas-web-ser-example-app",
+  "description": "Basic Web Service example application",
+  "version": "0.0.1",
+  "licence": "MIT",
+  "authors": [
+    "Ari Kekalainen <ari.kekalainen@gmail.com"
+  ],
+  "main": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "release",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#1.0.0",
+    "base-element": "../bas-web-ser-client-components/base-element/release",
+    "type-definitions": "../bas-web-ser-typedefinitions"
+  }
+}

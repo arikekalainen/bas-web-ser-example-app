@@ -1,0 +1,24 @@
+{
+  "name": "example-app",
+  "version": "0.0.1",
+  "description": "Basic Web Service : web application for polymer elements",
+  "main": "gulpfile.js",
+  "license": "MIT",
+  "author": "Ari Kekalainen <ari.kekalainen@gmail.com>",
+  "scripts": {
+
+  },
+  "repository": {
+
+  },
+  "dependencies": {
+    "bas-web-ser-backend": "../bas-web-ser-backend"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-jade": "^1.1.0",
+    "gulp-run": "^1.6.10",
+    "run-sequence": "^1.1.2",
+    "type-definitions": "../bas-web-ser-typedefinitions"
+  }
+}

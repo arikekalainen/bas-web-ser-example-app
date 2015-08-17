@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "commonjs",
+        "declaration": false,
+        "noImplicitAny": false,
+        "removeComments": true,
+        "noLib": false
+    },
+    "compileOnSave": false,
+    "filesGlob": [
+        "./**/*.ts",
+        "./node_modules/type-definitions/**/*.ts",
+        "!./node_modules/gulp-typescript/**/*.ts"
+    ],
+    "files": [
+    ]
+}
