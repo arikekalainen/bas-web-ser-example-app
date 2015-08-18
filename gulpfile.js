@@ -1,6 +1,7 @@
 /**
   Gulpfile for  Basic Web Service : example application
   Author : Ari Kekalainen <ari.kekalainen@gmail.com>
+
 */
 var gulp = require('gulp');
 var ts = require('gulp-typescript');
@@ -11,11 +12,36 @@ var run = require("gulp-run");
 
 var tsProject = ts.createProject(tsConfig.compilerOptions);
 
+// Client components
+// - This list must be updated when new components are added
+// + Base-element
+var baseElement = "../bas-web-ser-client-components/base-element"
+
+var baseElementNpmInstall = "base-element-npm-install";
+gulp.task(baseElementNpmInstall, function() {
+  return gulp.src(baseElement + "/package.json")
+    .pipe(run("npm install", {cwd: baseElement}));
+});
+
+var baseElementBowerInstall = "base-element-bower-install";
+gulp.task(baseElementBowerInstall, function() {
+  return gulp.src(baseElement + "/bower.json")
+    .pipe(run("bower install", {cwd: baseElement}));
+});
+
+var baseElementCompileRelease = "base-element-compile-release";
+gulp.task(baseElementCompileRelease, function() {
+  return gulp.src(baseElement + "/gulpfile.js")
+    .pipe(run("gulp", {cwd: baseElement}));
+});
+
+
+
 // Backend
 // - executes npm install for backend
 // - executes gulp-release for backend
 // - copy backend to release
-var backend = "bas-web-ser-backend";
+var backend = "../bas-web-ser-backend";
 
 var backendNpmInstall = "backend-npm-install";
 gulp.task(backendNpmInstall, function() {
@@ -36,8 +62,16 @@ gulp.task(backendCopyToRelease, function() {
 });
 
 // Example application
+// - execute bower install
 // - compile jade to html
 // - copy css files to release
+var exampleAppBowerInstall = "example-app-bower-install";
+gulp.task(exampleAppBowerInstall, function() {
+  return gulp.src("./bower.json")
+    .pipe(run("bower install", {cwd: "./"}));
+});
+
+
 var exampleAppJadeToHtml = "example-app-jade-to-html";
 gulp.task(exampleAppJadeToHtml, function() {
   return gulp.src("./jade/**/*.jade")
@@ -49,7 +83,7 @@ gulp.task(exampleAppJadeToHtml, function() {
 var exampleAppCopyCss = "example-app-copy-css";
 gulp.task(exampleAppCopyCss, function() {
     return gulp.src("./style/**/*.css")
-        .pipe(gulp.dest('release/client/style'))
+        .pipe(gulp.dest('./release/client/style'))
 });
 
 
@@ -58,6 +92,10 @@ gulp.task('default', function() {
   console.log("Gulp : Running default task : do everything !");
 
   sequence(
+    baseElementNpmInstall,
+    baseElementBowerInstall,
+    baseElementCompileRelease,
+    exampleAppBowerInstall,
     exampleAppJadeToHtml,
     exampleAppCopyCss,
     backendNpmInstall,
