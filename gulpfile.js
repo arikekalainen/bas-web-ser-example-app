@@ -35,6 +35,27 @@ gulp.task(baseElementCompileRelease, function() {
     .pipe(run("gulp", {cwd: baseElement}));
 });
 
+// + X-element
+var xElement = "../bas-web-ser-client-components/x-element"
+
+var xElementNpmInstall = "x-element-npm-install";
+gulp.task(xElementNpmInstall, function() {
+  return gulp.src(xElement + "/package.json")
+    .pipe(run("npm install", {cwd: xElement}));
+});
+
+var xElementBowerInstall = "x-element-bower-install";
+gulp.task(xElementBowerInstall, function() {
+  return gulp.src(xElement + "/bower.json")
+    .pipe(run("bower install", {cwd: xElement}));
+});
+
+var xElementCompileRelease = "x-element-compile-release";
+gulp.task(xElementCompileRelease, function() {
+  return gulp.src(xElement + "/gulpfile.js")
+    .pipe(run("gulp", {cwd: xElement}));
+});
+
 
 
 // Backend
@@ -95,6 +116,9 @@ gulp.task('default', function() {
     baseElementNpmInstall,
     baseElementBowerInstall,
     baseElementCompileRelease,
+    xElementNpmInstall,
+    xElementBowerInstall,
+    xElementCompileRelease,
     exampleAppBowerInstall,
     exampleAppJadeToHtml,
     exampleAppCopyCss,
