@@ -15,11 +15,13 @@
     "test",
     "tests"
   ],
+  "devDependencies": {
+    "type-definitions": "git://github.com/arikekalainen/bas-web-ser-typedefinitions.git#master"
+  },
   "dependencies": {
     "polymer": "Polymer/polymer#1.0.0",
     "iron-input": "PolymerElements/iron-input#~1.0.5",
-    "base-element": "../bas-web-ser-client-components/base-element/release",
-    "x-element": "../bas-web-ser-client-components/x-element/release",
-    "type-definitions": "../bas-web-ser-typedefinitions"
+    "base-element": "git://github.com/arikekalainen/base-element#master",
+    "x-element": "git://github.com/arikekalainen/x-element#master"
   }
 }
