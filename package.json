@@ -6,13 +6,15 @@
   "license": "MIT",
   "author": "Ari Kekalainen <ari.kekalainen@gmail.com>",
   "scripts": {
-
+    "postinstall": "gulp && bower install",
+    "start": "nodejs ./release/backend/main.js"
   },
   "repository": {
-
+    "type": "git",
+    "url": "https://github.com/arikekalainen/bas-web-ser-example-app.git"
   },
   "dependencies": {
-    "bas-web-ser-backend": "../bas-web-ser-backend"
+    "bas-web-ser-backend": "git://github.com/arikekalainen/bas-web-ser-backend.git#master"
   },
   "devDependencies": {
     "gulp": "^3.9.0",
@@ -20,6 +22,6 @@
     "gulp-run": "^1.6.10",
     "gulp-typescript": "^2.8.0",
     "run-sequence": "^1.1.2",
-    "type-definitions": "../bas-web-ser-typedefinitions"
+    "type-definitions": "git://github.com/arikekalainen/bas-web-ser-typedefinitions.git#master"
   }
 }
